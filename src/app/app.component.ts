@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {StorageService} from "./storage.service";
 import {IItem} from "./IItem";
 
+import {Subject} from 'rxjs/Subject';
+
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -9,11 +14,17 @@ import {IItem} from "./IItem";
 })
 export class AppComponent implements OnInit {
     items: IItem[];
+    typed: Subject<string> = new Subject<string>();
 
     constructor(protected storage: StorageService) {}
 
     ngOnInit() {
         this.items = this.storage.getItems();
+
+        //detect the subject's change
+        this.typed.debounceTime(300).subscribe(() => {
+            this.store();
+        });
     }
 
     /**
@@ -39,8 +50,8 @@ export class AppComponent implements OnInit {
     }
 
     public update(index:number, name: string): void {
+        this.typed.next(name);
         this.items[index].name = name;
-        this.store();
     }
 
     private store() {
