@@ -12,17 +12,17 @@ export class StorageService{
 
     constructor() {
         //set the initial demo items
-        if (!localStorage.getItem('items')) {
+        if (!localStorage.getItem(this.keyName)) {
             this.storeItems(DEFAULT_ITEMS);
         }
     }
 
     public storeItems(items:IItem[]) {
-        return localStorage.setItem('items', JSON.stringify(items));
+        return localStorage.setItem(this.keyName, JSON.stringify(items));
     }
 
     public getItems():IItem[] {
-        return JSON.parse(localStorage.getItem('items')) as IItem[];
+        return JSON.parse(localStorage.getItem(this.keyName)) as IItem[];
     }
 }
 
