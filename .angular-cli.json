@@ -9,8 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico",
-        "list.appcache"
+        "checklist.png"
       ],
       "index": "index.html",
       "main": "main.ts",
