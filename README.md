@@ -1,3 +1,17 @@
+# A simple Shopping List done with Angular 4
+An Angular demo app - create a shopping list
+
+Entirely client-side based. No server-side. It uses the browsers localStorage to store the data from the list.  
+  
+Initially a demo list of three items is loaded.  
+  
+Usage:  
+- add new items on pressing "Enter" key while in the new item's row, or pressing the button "add item"
+- edit items - the content is saved as you type 
+- remove item - well ... it is obvious
+  
+Demo at: http://list.vivanov.me/
+
 # ShoppingListAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
