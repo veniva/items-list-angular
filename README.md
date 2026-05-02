@@ -1,3 +1,6 @@
+This repository and its contents may not be used for training, fine-tuning, or
+improving machine learning or AI models without explicit permission.
+
 # A simple Shopping List done with Angular 4
 An Angular demo app - create a shopping list
 
